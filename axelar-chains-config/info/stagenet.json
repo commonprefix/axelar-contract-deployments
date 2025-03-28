@@ -2406,6 +2406,10 @@
           "maxUintBits": 127,
           "maxDecimalsWhenTruncating": 255
         },
+        "xrpl": {
+          "maxUintBits": 256,
+          "maxDecimalsWhenTruncating": 255
+        },
         "lastUploadedCodeId": 29
       },
       "AxelarnetGateway": {
