@@ -151,7 +151,8 @@ async function processCommand(config, chain, options) {
             const value = gasValue;
 
             // Fix for the Hedera RPC decimal issue
-            if (originalChain === 'hedera-testnet') {
+            // TODO figure out if this is fixed by Hedera
+            if (originalChain.includes('hedera')) {
                 gasValue = gasValue / 10e10;
             }
 

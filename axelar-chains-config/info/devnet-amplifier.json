@@ -601,24 +601,24 @@
           "deployer": "0x8d5AF9D897a80afCAf854202ACf6d2641378ba6C"
         },
         "InterchainTokenService": {
-          "salt": "ITS v2.0.0 devnet-amplifier retest",
+          "salt": "ITS v2.0.0 devnet-amplifier redeploy",
           "deployer": "0x8d5AF9D897a80afCAf854202ACf6d2641378ba6C",
-          "proxySalt": "ITS v2.0.0 devnet-amplifier retest",
-          "tokenManagerDeployer": "0xE1Cdf727E3aC090F9ca11bA91cA8898954813a9e",
+          "proxySalt": "ITS v2.0.0 devnet-amplifier redeploy",
+          "tokenManagerDeployer": "0x8C3fE486CB085eC24b89616c983635257d7635E3",
           "interchainToken": "0xd0C0eec9CDe0C239AAA8cde3B01497CE807eE438",
-          "interchainTokenDeployer": "0xf5cB092a9ebbd77E8196C7aB4d981236B37aabE3",
-          "tokenManager": "0x1Ad8F04CAB2bB1F02F6992Fe8075219F533F7D6C",
-          "tokenHandler": "0x94eb6D4Fca6925B2460D7824b702339244285567",
-          "implementation": "0x5F4EdB347634A23681b7628Da77e9067cD3B9059",
+          "interchainTokenDeployer": "0x3ad6c68379E6DDF365c595dddeA25A6Fb573Fdf7",
+          "tokenManager": "0x4C4253E8025515D5776272397B021DbD8aBA066d",
+          "tokenHandler": "0x1cf676B96bB0f2dE86a996C6C2a6F3594Cbb8192",
+          "implementation": "0x879510ef0975Df1e0Cc9B37108A8FD00687Fdc8E",
           "predeployCodehash": "0x08a4a556c4db879b4f24104d13a8baf86915d58b12c81b382dfea2a82d2856cf",
-          "address": "0x3382eC1c8Afe269688e96a30DA6E9403433cB822",
-          "gatewayCaller": "0x8Ef7FBce1992D7381cF5d18F7a05172464Ec5f39"
+          "address": "0xf193d6b9946afd12cD1f147849eCdA76E9692875",
+          "gatewayCaller": "0x997e06704C031EEe6C3459478d4B58015aD49c7D"
         },
         "InterchainTokenFactory": {
           "deployer": "0x8d5AF9D897a80afCAf854202ACf6d2641378ba6C",
-          "salt": "ITS Factory v2.0.0 devnet-amplifier retest",
-          "implementation": "0x24dbb1f311875b10be5b1F118aD584669Ea9cAAd",
-          "address": "0x940A61DedB31723d6470bDE31118E0DA255e6F6d"
+          "salt": "ITS Factory v2.0.0 devnet-amplifier redeploy",
+          "implementation": "0x2F545DBED4683BE04fE3CB3d11a3EBC13c9462DC",
+          "address": "0x1f3646b68d1EcF6EB7beEb7124d02737546b53d8"
         }
       }
     }
