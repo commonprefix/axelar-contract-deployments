@@ -116,13 +116,13 @@ async function processCommand(config, chain, options) {
         }
 
         case 'deployInterchainToken': {
-            const { name, symbol, decimals, initialSupply, minter } = options;
+            const { name, symbol, decimals, initialSupply, minter, gasValue, value } = options;
 
             const deploymentSalt = getDeploymentSalt(options);
 
             validateParameters({
                 isNonEmptyString: { name, symbol },
-                isValidNumber: { decimals },
+                isValidNumber: { decimals, gasValue, value },
                 isValidDecimal: { initialSupply },
                 isAddress: { minter },
             });
@@ -134,7 +134,7 @@ async function processCommand(config, chain, options) {
                 decimals,
                 parseInt(initialSupply * 10 ** decimals),
                 minter,
-                gasOptions,
+                { value, ...gasOptions },
             );
 
             const tokenId = await interchainTokenFactory.interchainTokenId(wallet.address, deploymentSalt);
@@ -146,9 +146,21 @@ async function processCommand(config, chain, options) {
         }
 
         case 'deployRemoteInterchainToken': {
-            const { originalChain, minter, destinationChain, gasValue } = options;
+            const { originalChain, minter, destinationChain } = options;
+            let { gasValue } = options;
+            const value = gasValue;
+
+            // Fix for the Hedera RPC decimal issue
+            if (originalChain === 'hedera-testnet') {
+                gasValue = gasValue / 10e10;
+            }
 
             const deploymentSalt = getDeploymentSalt(options);
+
+            console.log('Deployment Salt', deploymentSalt);
+            console.log('Destination chain', destinationChain);
+            console.log('Original chain', originalChain);
+            console.log('Gas value', gasValue);
 
             validateParameters({
                 isString: { originalChain },
@@ -159,13 +171,15 @@ async function processCommand(config, chain, options) {
 
             isValidDestinationChain(config, destinationChain);
 
-            const tx = await interchainTokenFactory.deployRemoteInterchainToken(
-                originalChain,
+            const tx = await interchainTokenFactory['deployRemoteInterchainToken(bytes32,address,string,uint256)'](
                 deploymentSalt,
                 minter,
                 destinationChain,
                 gasValue,
-                { value: gasValue, ...gasOptions },
+                {
+                    value,
+                    ...gasOptions,
+                },
             );
             const tokenId = await interchainTokenFactory.interchainTokenId(wallet.address, deploymentSalt);
             printInfo('tokenId', tokenId);
@@ -191,23 +205,24 @@ async function processCommand(config, chain, options) {
         }
 
         case 'deployRemoteCanonicalInterchainToken': {
-            const { originalChain, tokenAddress, destinationChain, gasValue } = options;
+            const { tokenAddress, destinationChain } = options;
+            let { gasValue } = options;
+            const value = gasValue;
+            gasValue = gasValue / 10e10;
 
             validateParameters({
                 isValidAddress: { tokenAddress },
-                isString: { originalChain },
                 isNonEmptyString: { destinationChain },
                 isValidNumber: { gasValue },
             });
 
             isValidDestinationChain(config, destinationChain);
 
-            const tx = await interchainTokenFactory.deployRemoteCanonicalInterchainToken(
-                originalChain,
+            const tx = await interchainTokenFactory['deployRemoteCanonicalInterchainToken(address,string,uint256)'](
                 tokenAddress,
                 destinationChain,
                 gasValue,
-                { value: gasValue, ...gasOptions },
+                { value, ...gasOptions },
             );
 
             const tokenId = await interchainTokenFactory.canonicalInterchainTokenId(tokenAddress);
@@ -266,6 +281,7 @@ if (require.main === module) {
     program.addOption(new Option('--destinationChain <destinationChain>', 'destination chain'));
     program.addOption(new Option('--destinationAddress <destinationAddress>', 'destination address'));
     program.addOption(new Option('--gasValue <gasValue>', 'gas value').default(0));
+    program.addOption(new Option('--value <value>', 'value').default(0));
     program.addOption(new Option('--rawSalt <rawSalt>', 'raw deployment salt').env('RAW_SALT'));
 
     program.action((options) => {

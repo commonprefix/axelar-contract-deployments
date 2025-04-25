@@ -48,6 +48,7 @@ const CreateDeploy = require('@axelar-network/axelar-gmp-sdk-solidity/artifacts/
 const IDeployer = require('@axelar-network/axelar-gmp-sdk-solidity/interfaces/IDeployer.json');
 const { exec } = require('child_process');
 const { verifyContract } = require(`${__dirname}/../axelar-chains-config`);
+const { linkBytecode } = require('solc/linker');
 
 const deployCreate = async (wallet, contractJson, args = [], options = {}, verifyOptions = null, chain = {}) => {
     const factory = new ContractFactory(contractJson.abi, contractJson.bytecode, wallet);
@@ -845,6 +846,24 @@ function getContractJSON(contractName, artifactPath) {
 
     try {
         const contractJson = require(contractPath);
+
+        // Link contracts that depend on HTS library
+        if (
+            ['InterchainTokenDeployer', 'TokenManager', 'InterchainTokenService', 'InterchainTokenFactory', 'TokenHandler'].includes(
+                contractName,
+            )
+        ) {
+            if (!process.env.HTS_LIB_ADDRESS) {
+                throw new Error('Env var HTS_LIB_ADDRESS is required.');
+            }
+
+            // console.log(`Linking ${contractName} bytecode with HTS library.`);
+            contractJson.bytecode = linkBytecode(contractJson.bytecode, {
+                HTS: process.env.HTS_LIB_ADDRESS,
+                'contracts/hedera/HTS.sol:HTS': process.env.HTS_LIB_ADDRESS,
+            });
+        }
+
         return contractJson;
     } catch (err) {
         throw new Error(`Failed to load contract JSON for ${contractName} at path ${contractPath} with error: ${err}`);

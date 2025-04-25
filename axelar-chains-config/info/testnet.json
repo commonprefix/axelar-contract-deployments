@@ -2424,7 +2424,7 @@
         "api": ""
       },
       "gasOptions": {
-        "gasLimit": 8000000
+        "gasLimit": 15000000
       },
       "timeout": 50000,
       "contracts": {
@@ -2480,6 +2480,26 @@
           "implementation": "0xCD6b34FaF1FD1056C728A27426AB6807f84BAa1b",
           "deployer": "0x5b593E7b1725dc6FcbbFe80b2415B19153F94A85",
           "owner": "0x6f24A47Fc8AE5441Eb47EFfC3665e70e69Ac3F05"
+        },
+        "InterchainTokenService": {
+          "salt": "ITS v2.0.0rc2 devnet-amplifier",
+          "deployer": "0x8d5AF9D897a80afCAf854202ACf6d2641378ba6C",
+          "proxySalt": "ITS v2.0.0 devnet-amplifier",
+          "tokenManagerDeployer": "0xdcF4A19016c4F317C21556a06E9e3b56d28CC36c",
+          "interchainToken": "0x744f4Fc391AA9AA0c5D58e32a5B55f7aC78Dfe16",
+          "interchainTokenDeployer": "0xfAD2c982058d3Ca04a5E80C19135c7aafa2dFc86",
+          "tokenManager": "0x8C4f094B142044eBd113444C2433B5A2bbd637B3",
+          "tokenHandler": "0x3f240c3a76dd9b2F01e69934d8F09e5ff673BD26",
+          "gatewayCaller": "0x38446a30bFFfC31dbF8148058e68c5F057D45B1B",
+          "implementation": "0x55ca302936cd0E6880BD5700BF6A992dfF844f5b",
+          "predeployCodehash": "0x08a4a556c4db879b4f24104d13a8baf86915d58b12c81b382dfea2a82d2856cf",
+          "address": "0x28332Ca1683331393d95C2359b79a37aC122DFBF"
+        },
+        "InterchainTokenFactory": {
+          "deployer": "0x8d5AF9D897a80afCAf854202ACf6d2641378ba6C",
+          "salt": "ITS Factory v2.0.0 devnet-amplifier",
+          "implementation": "0xE04cbcB553cAbF346f356FAc2dEa421460c5235E",
+          "address": "0x039Ec5DdD0870E68A33C3aF2b63490983091A0ea"
         }
       }
     }

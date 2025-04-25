@@ -42,6 +42,14 @@ async function deployAll(config, wallet, chain, options) {
     const { env, artifactPath, deployMethod, proxyDeployMethod, skipExisting, verify, yes, predictOnly } = options;
     const verifyOptions = verify ? { env, chain: chain.name, only: verify === 'only' } : null;
 
+    if (!process.env.HTS_LIB_ADDRESS || !isValidAddress(process.env.HTS_LIB_ADDRESS)) {
+        throw new Error(
+            process.env.HTS_LIB_ADDRESS
+                ? `Invalid env var HTS_LIB_ADDRESS: ${process.env.HTS_LIB_ADDRESS}`
+                : 'Please define HTS_LIB_ADDRESS in .env',
+        );
+    }
+
     const provider = getDefaultProvider(chain.rpc);
     const InterchainTokenService = getContractJSON('InterchainTokenService', artifactPath);
 
@@ -177,22 +185,22 @@ async function deployAll(config, wallet, chain, options) {
                 );
             },
         },
-        interchainToken: {
-            name: 'Interchain Token',
-            contractName: 'InterchainToken',
-            async deploy() {
-                return await deployContract(
-                    deployMethod,
-                    wallet,
-                    getContractJSON('InterchainToken', artifactPath),
-                    [interchainTokenService],
-                    deployOptions,
-                    gasOptions,
-                    verifyOptions,
-                    chain,
-                );
-            },
-        },
+        // interchainToken: {
+        //     name: 'Interchain Token',
+        //     contractName: 'InterchainToken',
+        //     async deploy() {
+        //         return await deployContract(
+        //             deployMethod,
+        //             wallet,
+        //             getContractJSON('InterchainToken', artifactPath),
+        //             [interchainTokenService],
+        //             deployOptions,
+        //             gasOptions,
+        //             verifyOptions,
+        //             chain,
+        //         );
+        //     },
+        // },
         interchainTokenDeployer: {
             name: 'Interchain Token Deployer',
             contractName: 'InterchainTokenDeployer',
@@ -201,7 +209,7 @@ async function deployAll(config, wallet, chain, options) {
                     deployMethod,
                     wallet,
                     getContractJSON('InterchainTokenDeployer', artifactPath),
-                    [contractConfig.interchainToken],
+                    [],
                     deployOptions,
                     gasOptions,
                     verifyOptions,
@@ -233,7 +241,7 @@ async function deployAll(config, wallet, chain, options) {
                     deployMethod,
                     wallet,
                     getContractJSON('TokenHandler', artifactPath),
-                    [contracts.AxelarGateway.address],
+                    [],
                     deployOptions,
                     gasOptions,
                     verifyOptions,
