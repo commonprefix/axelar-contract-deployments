@@ -45,7 +45,13 @@ const { addAmplifierOptions } = require('./cli-utils');
 const predictAddress = async (client, contractConfig, options) => {
     const { contractName, salt, chainName, runAs } = options;
 
-    const { checksum } = await client.getCodeDetails(contractConfig.codeId);
+    const checksums = {
+        XrplVotingVerifier: '7055d307103d5bcbed4c9465f40084acdb0f154a8dda0d8c0ee68f865892874a',
+        XrplMultisigProver: 'bee1192a8ae1d8928127bbb23e259cfadf817b930c5176cf83f7985240a7254a',
+        XrplGateway: '9c626d4ab34d3e8cd7426b72ad476b8adce05bed3274ca1b35523e66bbcf7688',
+    };
+
+    const checksum = checksums[contractName];
     const contractAddress = instantiate2Address(fromHex(checksum), runAs, getSalt(salt, contractName, chainName), 'axelar');
 
     printInfo(`Predicted address for ${chainName ? chainName.concat(' ') : ''}${contractName}. Address`, contractAddress);
@@ -117,8 +123,6 @@ const storeInstantiate = async (client, wallet, config, options) => {
 const instantiate = async (client, wallet, config, options) => {
     const { contractName, instantiate2, predictOnly } = options;
     const { contractConfig } = getAmplifierContractConfig(config, options);
-
-    contractConfig.codeId = await getCodeId(client, config, options);
 
     let contractAddress;
 
