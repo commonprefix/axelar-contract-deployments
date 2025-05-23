@@ -2930,6 +2930,54 @@
           "address": "0x83a93500d23Fbc3e82B410aD07A6a9F7A0670D66"
         }
       }
+    },
+    "xrpl": {
+      "name": "XRPL",
+      "axelarId": "xrpl",
+      "rpc": "https://s1.ripple.com:51234",
+      "wssRpc": "wss://s1.ripple.com",
+      "tokenSymbol": "XRP",
+      "decimals": 6,
+      "networkType": "mainnet",
+      "chainType": "xrpl",
+      "finality": "1",
+      "approxFinalityWaitTime": 1,
+      "explorer": {
+        "name": "XRPL Explorer",
+        "url": "https://livenet.xrpl.org"
+      },
+      "contracts": {
+        "InterchainTokenService": {
+          "address": "rfmS3zqrQrka8wVyhXifEeyTwe8AMz2Yhw",
+          "initialSigner": "rJJAmTa5f9rNmBtvUMmFKn2KoX2o8QhiQ9",
+          "transferRate": 0,
+          "tickSize": 6,
+          "domain": "axelar.foundation",
+          "flags": [
+            4,
+            12,
+            13,
+            14,
+            8,
+            6
+          ]
+        },
+        "AxelarGateway": {
+          "address": "rfmS3zqrQrka8wVyhXifEeyTwe8AMz2Yhw",
+          "initialSigner": "rJJAmTa5f9rNmBtvUMmFKn2KoX2o8QhiQ9",
+          "transferRate": 0,
+          "tickSize": 6,
+          "domain": "axelar.foundation",
+          "flags": [
+            4,
+            12,
+            13,
+            14,
+            8,
+            6
+          ]
+        }
+      }
     }
   },
   "axelar": {
@@ -3172,6 +3220,10 @@
         "stellar": {
           "maxUintBits": 127,
           "maxDecimalsWhenTruncating": 255
+        },
+        "xrpl": {
+          "maxUintBits": 256,
+          "maxDecimalsWhenTruncating": 255
         }
       },
       "AxelarnetGateway": {
@@ -3186,10 +3238,12 @@
         "xrpl": {
           "governanceAddress": "axelar10d07y265gmmuvt4z0w9aw880jnsr700j7v9daj",
           "adminAddress": "axelar1pczf792wf3p3xssk4dmwfxrh6hcqnrjp70danj",
-          "address": "axelar10k8c8c62t8vvgh95ya49l4dw6xr9xwtc5gn646nhse0cwcd30ycstex6pf"
+          "address": "axelar15dsw0qqnvumnsukjtwt040wnelwrglgslqcqsa7d62f2neuv7slq7rq7zd",
+          "codeId": 35
         },
         "storeCodeProposalId": "324",
-        "storeCodeProposalCodeHash": "9c626d4ab34d3e8cd7426b72ad476b8adce05bed3274ca1b35523e66bbcf7688"
+        "storeCodeProposalCodeHash": "9c626d4ab34d3e8cd7426b72ad476b8adce05bed3274ca1b35523e66bbcf7688",
+        "lastUploadedCodeId": 35
       },
       "XrplMultisigProver": {
         "xrpl": {
@@ -3203,10 +3257,12 @@
           "verifierSetDiffThreshold": 0,
           "xrplTransactionFee": 5000,
           "ticketCountThreshold": 50,
-          "address": "axelar1w5h7lmxce3zczuljknh836rrqpekn5vvadf253vnn8cx90rg2s5q6wk8yt"
+          "address": "axelar15mhhuf887t6nfx2t0vuc6kx9w2uk65h939awmz6n7r6ggzyf659st25hff",
+          "codeId": 36
         },
         "storeCodeProposalId": "325",
-        "storeCodeProposalCodeHash": "bee1192a8ae1d8928127bbb23e259cfadf817b930c5176cf83f7985240a7254a"
+        "storeCodeProposalCodeHash": "bee1192a8ae1d8928127bbb23e259cfadf817b930c5176cf83f7985240a7254a",
+        "lastUploadedCodeId": 36
       },
       "XrplVotingVerifier": {
         "xrpl": {
@@ -3219,10 +3275,12 @@
           ],
           "blockExpiry": 10,
           "confirmationHeight": 1,
-          "address": "axelar1078vczeygpnpugv8lz38uzavashfutxaukxuwqw0a7n3sjfnwfcskru2pn"
+          "address": "axelar14rd4uyrqyl0tw75gjn8zqfppmy08t3x3wrsujeqp37l0hghduanscfvkz6",
+          "codeId": 34
         },
         "storeCodeProposalId": "323",
-        "storeCodeProposalCodeHash": "7055d307103d5bcbed4c9465f40084acdb0f154a8dda0d8c0ee68f865892874a"
+        "storeCodeProposalCodeHash": "7055d307103d5bcbed4c9465f40084acdb0f154a8dda0d8c0ee68f865892874a",
+        "lastUploadedCodeId": 34
       }
     }
   }
