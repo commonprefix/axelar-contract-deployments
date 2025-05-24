@@ -1316,6 +1316,21 @@
           "codeId": 1291,
           "address": "axelar1snc8xyp47cyh7jgvprcezz00r56plfh9vy669gznqu6pktwlez3skvfd0a"
         },
+        "bitcoin-dev": {
+          "governanceAddress": "axelar1zlr7e5qf3sz7yf890rkh9tcnu87234k6k7ytd9",
+          "serviceName": "validators",
+          "sourceGatewayAddress": "0xCa85f85C72df5f8428a440887CA7c449D94e0D0c",
+          "votingThreshold": [
+            "1",
+            "1"
+          ],
+          "blockExpiry": 10,
+          "confirmationHeight": 1,
+          "msgIdFormat": "hex_tx_hash",
+          "addressFormat": "eip55",
+          "codeId": 854,
+          "address": "axelar1y46xz0x0dd2h29jynh0n9xudtmk0cg8jmxqr0cqv2pj6jfxw3s0qjq63me"
+        },
         "storeCodeProposalId": "78",
         "storeCodeProposalCodeHash": "d9412440820a51bc48bf41a77ae39cfb33101ddc6562323845627ea2042bf708"
       },
@@ -1354,6 +1369,10 @@
         "ton": {
           "codeId": 1292,
           "address": "axelar1lxgdq53a406k6ehv4yue04e7sxr7vfujkf44jfwgtx5xugzru0ssnsc03z"
+        },
+        "bitcoin-dev": {
+          "codeId": 848,
+          "address": "axelar1y6uwt6sma4ay7awdtecp47flapexq8cm6dd0csfuausupgw47mes3glt9f"
         }
       },
       "XrplMultisigProver": {
@@ -1497,6 +1516,20 @@
           "domainSeparator": "0x6973c72935604464b28827141b0a463af8e3487616de69c5aa0c785392c9fb9f",
           "codeId": 1312,
           "address": "axelar1lxgdq53a406k6ehv4yue04e7sxr7vfujkf44jfwgtx5xugzru0ssnsc03z"
+        },
+        "bitcoin-dev": {
+          "governanceAddress": "axelar1zlr7e5qf3sz7yf890rkh9tcnu87234k6k7ytd9",
+          "adminAddress": "axelar1880jp05pwxmfs30ynr9qvh6p63l54yl7nqr2dt",
+          "signingThreshold": [
+            "1",
+            "1"
+          ],
+          "serviceName": "validators",
+          "verifierSetDiffThreshold": 1,
+          "keyType": "ecdsa",
+          "domainSeparator": "0xbe20bbed22c0d35d6116a8312fbe9c90411f96cfa7893aaa7437bf088413ed79",
+          "codeId": 855,
+          "address": "axelar18y9apg4wl8yu06ccqsfjf4ceezen7pwvnrqjwqn3ugqdzq5thhhsvfqu7h"
         },
         "storeCodeProposalId": "82",
         "storeCodeProposalCodeHash": "00428ef0483f103a6e1a5853c4b29466a83e5b180cc53a00d1ff9d022bc2f03a"
