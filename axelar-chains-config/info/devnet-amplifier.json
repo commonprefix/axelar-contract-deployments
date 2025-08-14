@@ -1495,11 +1495,12 @@
       },
       "TonVotingVerifier": {
         "lastUploadedCodeId": 848,
-        "storeCodeProposalCodeHash": "d9412440820a51bc48bf41a77ae39cfb33101ddc6562323845627ea2042bf708",
+        "storeCodeProposalCodeHash": "f9062124c7bd5e1dc2db8e160015b5d96a728b150d1172c25088dcb49b54cee9",
         "ton2": {
           "codeId": 848,
           "address": "axelar1pc2j76m3g7ef6tv84wh89thse9z2eltxettpp00nxvj68dl52t0q0wlvqr"
-        }
+        },
+        "storeCodeProposalId": "1041"
       },
       "TonMultisigProver": {
         "lastUploadedCodeId": 848,
