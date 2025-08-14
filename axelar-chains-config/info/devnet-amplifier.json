@@ -1493,6 +1493,22 @@
         "storeCodeProposalId": "78",
         "storeCodeProposalCodeHash": "d9412440820a51bc48bf41a77ae39cfb33101ddc6562323845627ea2042bf708"
       },
+      "TonVotingVerifier": {
+        "lastUploadedCodeId": 848,
+        "storeCodeProposalCodeHash": "d9412440820a51bc48bf41a77ae39cfb33101ddc6562323845627ea2042bf708",
+        "ton2": {
+          "codeId": 848,
+          "address": "axelar1pc2j76m3g7ef6tv84wh89thse9z2eltxettpp00nxvj68dl52t0q0wlvqr"
+        }
+      },
+      "TonMultisigProver": {
+        "lastUploadedCodeId": 848,
+        "storeCodeProposalCodeHash": "d9412440820a51bc48bf41a77ae39cfb33101ddc6562323845627ea2042bf708",
+        "ton2": {
+          "codeId": 848,
+          "address": "axelar1pdk92hqcy38cwyktph59a0hsvv4f35naspn5ggrvpf8ve7zf3wuqqk0q56"
+        }
+      },
       "Gateway": {
         "avalanche-fuji": {
           "codeId": 848,
@@ -1532,6 +1548,10 @@
         "berachain": {
           "codeId": 848,
           "address": "axelar129htsgeyygnc6mlhxxjsdrtu2yj8wam83ur6mcdlvdttvk3zlecqwdjnl0"
+        },
+        "ton2": {
+          "codeId": 848,
+          "address": "axelar1qr2e4l4ap6wef7gdd5de9sr3hvzgw46ctp2e0axd598alt6nu6aqusaaw3"
         }
       },
       "XrplMultisigProver": {
